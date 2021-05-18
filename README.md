@@ -1,3 +1,23 @@
+# How can I add my own data?
+
+Create a folder named "custom_data" within the home directory of this project. Now, place your custom data as .npz file into the "custom_data" folder.
+Your data must be in the form of a numpy array saved dictionary contain with the following two keys:
+
+1. a list of factor sizes, e.g. [2,3,4,5,6,7]
+2. your image dataset in the form of a numpy array in the following shape [dataset_size, image_dim_1, image_dim_2, image_channels]
+
+Note the following two pieces of information:
+
+- the dataset_size should be equivalent the full product of factor sizes, i.e., for above example dataset_size = 2*3*4*5*6*7 = 5040
+- for any pixel in your dataset's images, the range [0,1], i.e. your images should be normalized
+
+Furthermore, we have to install/update the following tensorflow settings to work with custom data:
+
+1. ```pip install .[tf]``` (if no GPU available) else  ```pip install .[tf_gpu]```
+2. ```pip install "tensorflow>=1.15,<2.0"``` to ensure the correct tensorflow version (i.e. 1.15)
+3. ```pip install --upgrade tensorflow-hub```
+
+
 # disentanglement_lib
 ![Sample visualization](https://github.com/google-research/disentanglement_lib/blob/master/sample.gif?raw=true)
 
