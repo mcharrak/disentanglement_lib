@@ -1,7 +1,6 @@
 # How can I add my own data?
 
-Create a folder named "custom_data" within the home directory of this project. Now, place your custom data as .npz file into the "custom_data" folder.
-Your data must be in the form of a numpy array saved dictionary contain with the following two keys:
+Create a directory called `custom_data` within the home directory `disentanglement_lib/` of this project. Now, place your data in the form of a ".npz" (see np.savez in numpy) file into the just created folder/directory `disentanglement_lib/custom_data/`. Your original data must be in the form of a dictionary that was saved as a numpy array containing the following two keys:
 
 1. a list of factor sizes, e.g. [2,3,4,5,6,7]
 2. your image dataset in the form of a numpy array in the following shape [dataset_size, image_dim_1, image_dim_2, image_channels]
@@ -9,7 +8,7 @@ Your data must be in the form of a numpy array saved dictionary contain with the
 Note the following two pieces of information:
 
 - the dataset_size should be equivalent the full product of factor sizes, i.e., for above example dataset_size = 2*3*4*5*6*7 = 5040
-- for any pixel in your dataset's images, the range [0,1], i.e. your images should be normalized
+- for any image in your dataset, the pixel should range between [0,1], i.e. your images should be normalized
 
 Furthermore, we have to install/update the following tensorflow settings to work with custom data:
 
