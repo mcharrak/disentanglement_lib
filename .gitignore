@@ -1,0 +1,4 @@
+custom_data/
+*.ipynb_checkpoints
+*__pycache__/
+*example_output/

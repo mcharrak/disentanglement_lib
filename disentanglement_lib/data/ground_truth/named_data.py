@@ -23,6 +23,7 @@ from disentanglement_lib.data.ground_truth import dummy_data
 from disentanglement_lib.data.ground_truth import mpi3d
 from disentanglement_lib.data.ground_truth import norb
 from disentanglement_lib.data.ground_truth import shapes3d
+from disentanglement_lib.data.ground_truth import custom_data
 import gin.tf
 
 
@@ -61,5 +62,7 @@ def get_named_ground_truth_data(name):
     return shapes3d.Shapes3D()
   elif name == "dummy_data":
     return dummy_data.DummyData()
+  elif name == "custom_data":
+    return custom_data.CustomData()
   else:
     raise ValueError("Invalid data set name.")
