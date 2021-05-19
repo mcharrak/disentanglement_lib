@@ -7,7 +7,7 @@ Create a directory called `custom_data` within the home directory `disentangleme
 
 Note the following two pieces of information:
 
-- the dataset_size should be equivalent the full product of factor sizes, i.e., for above example dataset_size = 2*3*4*5*6*7 = 5040
+- the dataset_size should be equivalent the full product of factor sizes, i.e., for above example dataset_size = 2 * 3 * 4 * 5 * 6 * 7 = 5040
 - for any image in your dataset, the pixel should range between [0,1], i.e. your images should be normalized
 
 Furthermore, we have to install/update the following tensorflow settings to work with custom data:
