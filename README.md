@@ -8,7 +8,7 @@ Create a directory called `custom_data` within the home directory `disentangleme
 Note the following three pieces of information:
 
 - the dataset_size should be equivalent the full product of factor sizes, i.e., for above example dataset_size = 2 * 3 * 4 * 5 * 6 * 7 = 5040.
-- when constructing the custom dataset, we need to generate images by varyging one latent at a time (starting from Factor 1, then Factor 2, etc), and sequentially store the corresponding generated images in this fixed order. Hence the order along the first dimension of the dataset is fixed and allows us to map back to the value/constellation of the latents corresponding to that image.
+- when constructing the custom dataset, we need to generate images by varying one latent at a time (starting from Factor 1, then Factor 2, etc), and sequentially store the corresponding generated images in this fixed order. Hence the order along the first dimension of the dataset is fixed and allows us to map back to the value/constellation of the latents corresponding to that image.
 - for any image in your dataset, the pixel should range between [0,1], i.e. your images should be normalized.
 
 Furthermore, we have to install/update the following tensorflow settings to work with custom data:
