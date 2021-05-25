@@ -1,4 +1,17 @@
-custom_data/
+>>> jupyter lab/notebook files >>>
 *.ipynb_checkpoints
 *__pycache__/
+<<< jupyter lab/notebook files <<<
+
+>>> library run outputs >>>
 *example_output/
+<<< library run outputs <<<
+
+>>> datasets >>>
+cars/
+dsprites/
+mpi3d_toy/
+scream/
+small_norb/
+custom_data/
+>>> datasets <<<
