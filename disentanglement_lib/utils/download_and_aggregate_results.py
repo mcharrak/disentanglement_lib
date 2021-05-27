@@ -45,17 +45,21 @@ flags.DEFINE_string("fname_json_agg_results", "aggregated_results.json",
                     "filename of aggregated .json file with all model results and metrics.")
 
 def main(unused_argv):
-    if not os.path.exists(FLAGS.output_dir):
+    
+    if os.path.exists(FLAGS.output_dir):
+        return print("Process aborted because data or folder already exist.")
+    
+    else:
         os.makedirs(FLAGS.output_dir)
+    
+        print('Downloading and unzipping zip files to {} ...'.format(FLAGS.output_dir))
 
-    print('Downloading and unzipping zip files to {} ...'.format(FLAGS.output_dir))
-
-# source: https://svaderia.github.io/articles/downloading-and-unzipping-a-zipfile/
-    for i in range(10800):
-        url_i = FLAGS.base_url + str(i) + ".zip"
-        with urlopen(url_i) as zipresp:
-            with ZipFile(BytesIO(zipresp.read())) as zfile:
-                zfile.extractall(FLAGS.output_dir)
+    # source: https://svaderia.github.io/articles/downloading-and-unzipping-a-zipfile/
+        for i in range(10800):
+            url_i = FLAGS.base_url + str(i) + ".zip"
+            with urlopen(url_i) as zipresp:
+                with ZipFile(BytesIO(zipresp.read())) as zfile:
+                    zfile.extractall(FLAGS.output_dir)
 
     print('Aggregating results as single .json file to {} ...'.format(FLAGS.output_dir))
 
@@ -63,7 +67,7 @@ def main(unused_argv):
 
     os.system('dlib_aggregate_results --output_path={0} --result_file_pattern={1}/*/metrics/*/*/results/aggregate/evaluation.json'.format(json_output, FLAGS.output_dir))
 
-    print('Downloading and aggregating results finished. Check {} directory for model folders and aggregated .json file.'.format(FLAGS.output_dir))
+    print('Downloading and aggregating results finished. Check under path {} for model folders and aggregated .json file.'.format(FLAGS.output_dir))
 
 if __name__ == "__main__":
     app.run(main)
