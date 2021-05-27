@@ -6,7 +6,6 @@
 >>> library run outputs >>>
 *example_output/
 output_directory/
-!output_directory/aggregated_results.json
 <<< library run outputs <<<
 
 >>> OS specific files >>>
